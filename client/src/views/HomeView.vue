@@ -22,7 +22,7 @@
         <v-row dense>
           <!-- Dashboard Card -->
           <v-col cols="12" md="6" class="mb-4">
-            <v-card class="pa-4 text-center dashboard-card" elevation="12">
+            <v-card class="pa-4 text-center dashboard-card" elevation="16">
               <v-icon large class="mb-2">mdi-view-dashboard</v-icon>
               <v-card-title>Dashboard</v-card-title>
               <v-card-subtitle class="mb-3">Overview of your transactions and balances.</v-card-subtitle>
@@ -32,7 +32,7 @@
 
           <!-- Wallet Card -->
           <v-col cols="12" md="6" class="mb-4">
-            <v-card class="pa-4 text-center wallet-card" elevation="12">
+            <v-card class="pa-4 text-center wallet-card" elevation="16">
               <v-icon large class="mb-2">mdi-wallet-outline</v-icon>
               <v-card-title>Wallet</v-card-title>
               <v-card-subtitle class="mb-3">Manage your crypto assets and transactions.</v-card-subtitle>
@@ -41,10 +41,24 @@
           </v-col>
         </v-row>
 
+        <!-- Payment Methods Card -->
+        <v-row dense>
+          <v-col cols="12" class="mb-4">
+            <v-card class="pa-4 text-center payment-methods-card" elevation="16">
+              <v-icon large class="mb-2">mdi-cash-usd</v-icon>
+              <v-card-title class="headline">Payment Methods</v-card-title>
+              <v-card-subtitle class="mb-3">Explore and manage your payment options.</v-card-subtitle>
+              <v-btn color="success" @click="goToPaymentMethods" class="mt-2" large>
+                Manage Payment Methods
+              </v-btn>
+            </v-card>
+          </v-col>
+        </v-row>
+
         <!-- Additional Info Card -->
         <v-row dense>
           <v-col cols="12" class="mb-4">
-            <v-card class="pa-4 text-center additional-info-card" elevation="12">
+            <v-card class="pa-4 text-center additional-info-card" elevation="16">
               <v-icon large class="mb-2">mdi-cash-usd</v-icon>
               <v-card-title>Instant Transactions</v-card-title>
               <v-card-subtitle class="mb-3">Experience fast and secure transactions with our gateway.</v-card-subtitle>
@@ -67,8 +81,11 @@ export default {
     goToWallet() {
       this.$router.push('/wallet');
     },
+    goToPaymentMethods() {
+      this.$router.push('/payment-methods');
+    },
     exploreMore() {
-      this.$router.push('/features'); // Example route
+      this.$router.push('/features');
     }
   }
 };
@@ -92,15 +109,14 @@ export default {
   text-align: center;
   padding: 30px;
   border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-card .v-card-title {
-  font-size: 3rem;
   font-weight: bold;
 }
 
 .hero-card .v-card-subtitle {
-  font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
@@ -111,16 +127,15 @@ export default {
 
 .dashboard-card:hover, .wallet-card:hover, .additional-info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
 .v-card-title {
   font-weight: bold;
-  font-size: 1.8rem;
+  color: #333;
 }
 
 .v-card-subtitle {
-  font-size: 1.2rem;
   color: #666;
 }
 
@@ -128,6 +143,7 @@ export default {
   font-weight: bold;
   border-radius: 25px;
   padding: 10px 20px;
+  text-transform: uppercase;
 }
 
 .primary--text {

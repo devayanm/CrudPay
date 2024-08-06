@@ -23,6 +23,9 @@
           </v-btn>
         </template>
         <v-list>
+          <v-list-item @click="goToProfile">
+            <v-list-item-title>Profile</v-list-item-title>
+          </v-list-item>
           <v-list-item @click="goToLogin">
             <v-list-item-title>Login</v-list-item-title>
           </v-list-item>
@@ -102,6 +105,9 @@ export default {
     },
     goToSupport() {
       this.$router.push("/support");
+    },
+    goToProfile() {
+      this.$router.push("/Profile");
     },
     goToLogin() {
       this.$router.push("/login");

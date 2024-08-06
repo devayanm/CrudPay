@@ -7,6 +7,7 @@ import WalletView from "@/views/WalletView.vue";
 import PaymentIntegrationView from "@/views/PaymentIntegration.vue";
 import ConvertCryptoView from "@/views/ConvertCrypto.vue";
 import ProfileView from "@/views/ProfileView.vue"
+import PaymentMethodsView from "@/views/PaymentMethodsView.vue";
 
 const routes = [
   { path: "/", component: HomeView },
@@ -17,6 +18,7 @@ const routes = [
   { path: "/payment-integration", component: PaymentIntegrationView },
   { path: "/convert-crypto", component: ConvertCryptoView },
   { path: "/profile", name: "Profile", component: ProfileView },
+  { path: "/payment-methods", name: "PaymentMethods", component: PaymentMethodsView },
 ];
 
 const router = createRouter({
