@@ -5,30 +5,26 @@
     <v-row>
       <!-- Account Overview -->
       <v-col cols="12" md="4">
-        <v-card class="pa-5 account-overview-card">
+        <v-card class="pa-5 account-overview-card elevation-8">
           <v-card-title class="headline">Account Overview</v-card-title>
           <v-card-text>
             <v-list dense>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>Email</v-list-item-title>
-                  <v-list-item-subtitle>{{ user.email }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="subtitle">{{ user.email }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>Balance</v-list-item-title>
-                  <v-list-item-subtitle>{{
-                    formattedBalance
-                  }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="balance-text">{{ formattedBalance }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>Last Login</v-list-item-title>
-                  <v-list-item-subtitle>{{
-                    formattedLastLoginDate
-                  }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="subtitle">{{ formattedLastLoginDate }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -38,35 +34,21 @@
 
       <!-- Quick Links -->
       <v-col cols="12" md="8">
-        <v-card class="pa-5 quick-links-card">
+        <v-card class="pa-5 quick-links-card elevation-8">
           <v-card-title class="headline">Quick Links</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" md="6">
-                <v-btn color="primary" block @click="navigateTo('wallet')"
-                  >Go to Wallet</v-btn
-                >
+                <v-btn color="primary" block @click="navigateTo('wallet')">Go to Wallet</v-btn>
               </v-col>
               <v-col cols="12" md="6">
-                <v-btn
-                  color="secondary"
-                  block
-                  @click="navigateTo('payment-integration')"
-                  >Payment Integration</v-btn
-                >
+                <v-btn color="secondary" block @click="navigateTo('payment-integration')">Payment Integration</v-btn>
               </v-col>
               <v-col cols="12" md="6">
-                <v-btn
-                  color="success"
-                  block
-                  @click="navigateTo('convert-crypto')"
-                  >Convert Crypto</v-btn
-                >
+                <v-btn color="success" block @click="navigateTo('convert-crypto')">Convert Crypto</v-btn>
               </v-col>
               <v-col cols="12" md="6">
-                <v-btn color="info" block @click="navigateTo('settings')"
-                  >Account Settings</v-btn
-                >
+                <v-btn color="info" block @click="navigateTo('settings')">Account Settings</v-btn>
               </v-col>
             </v-row>
           </v-card-text>
@@ -77,32 +59,27 @@
     <v-row>
       <!-- Recent Transactions -->
       <v-col cols="12">
-        <v-card class="pa-5 recent-transactions-card">
+        <v-card class="pa-5 recent-transactions-card elevation-8">
           <v-card-title class="headline">Recent Transactions</v-card-title>
           <v-card-text>
             <v-list dense>
               <v-list-item
                 v-for="transaction in recentTransactions"
                 :key="transaction.id"
+                class="transaction-list-item"
               >
                 <v-list-item-content>
-                  <v-list-item-title>{{ transaction.type }}</v-list-item-title>
-                  <v-list-item-subtitle
-                    >{{ transaction.date }} -
-                    {{
-                      formattedAmount(transaction.amount)
-                    }}</v-list-item-subtitle
-                  >
+                  <v-list-item-title class="transaction-title">{{ transaction.type }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ transaction.date }} - {{ formattedAmount(transaction.amount) }}</v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-icon>
-                  <v-icon
-                    :color="transaction.type === 'Credit' ? 'success' : 'error'"
-                    >{{
+                  <v-icon :color="transaction.type === 'Credit' ? 'success' : 'error'">
+                    {{
                       transaction.type === "Credit"
                         ? "mdi-arrow-up-bold-circle"
                         : "mdi-arrow-down-bold-circle"
-                    }}</v-icon
-                  >
+                    }}
+                  </v-icon>
                 </v-list-item-icon>
               </v-list-item>
             </v-list>
@@ -114,21 +91,18 @@
     <v-row>
       <!-- Notifications -->
       <v-col cols="12" md="6">
-        <v-card class="pa-5 notifications-card">
+        <v-card class="pa-5 notifications-card elevation-8">
           <v-card-title class="headline">Notifications</v-card-title>
           <v-card-text>
             <v-list dense>
               <v-list-item
                 v-for="notification in notifications"
                 :key="notification.id"
+                class="notification-list-item"
               >
                 <v-list-item-content>
-                  <v-list-item-title>{{
-                    notification.title
-                  }}</v-list-item-title>
-                  <v-list-item-subtitle>{{
-                    notification.message
-                  }}</v-list-item-subtitle>
+                  <v-list-item-title class="notification-title">{{ notification.title }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ notification.message }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -138,30 +112,20 @@
 
       <!-- Security Settings -->
       <v-col cols="12" md="6">
-        <v-card class="pa-5 security-settings-card">
+        <v-card class="pa-5 security-settings-card elevation-8">
           <v-card-title class="headline">Security Settings</v-card-title>
           <v-card-text>
             <v-list dense>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title
-                    >Two-Factor Authentication</v-list-item-title
-                  >
-                  <v-switch
-                    v-model="twoFactorAuthEnabled"
-                    class="ml-2"
-                  ></v-switch>
+                  <v-list-item-title>Two-Factor Authentication</v-list-item-title>
+                  <v-switch v-model="twoFactorAuthEnabled" class="ml-2"></v-switch>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>Change Password</v-list-item-title>
-                  <v-btn
-                    text
-                    @click="navigateTo('change-password')"
-                    class="ml-2"
-                    >Change</v-btn
-                  >
+                  <v-btn text @click="navigateTo('change-password')" class="ml-2">Change</v-btn>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -228,46 +192,68 @@ export default {
 
 .v-card {
   background-color: #f5f5f5;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .v-card-title {
   font-weight: bold;
-}
-
-.v-btn {
-  margin-top: 10px;
+  color: #333;
 }
 
 .account-overview-card {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .quick-links-card {
-  background-color: #e9ecef;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recent-transactions-card {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .notifications-card {
-  background-color: #f1f3f5;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .security-settings-card {
-  background-color: #e9ecef;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.v-list-item-content {
-  padding: 0;
+.balance-text {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2d3e50;
+  line-height: 1.2; 
+  padding: 8px 0; 
 }
 
-.v-list-item-icon {
-  min-width: 40px;
+.subtitle {
+  color: #666;
 }
 
-.v-list-item-title {
-  font-weight: 500;
+.transaction-list-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-title {
+  font-weight: bold;
+}
+
+.notification-list-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.notification-title {
+  font-weight: bold;
+}
+
+.v-btn {
+  text-transform: none;
 }
 </style>

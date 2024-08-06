@@ -4,18 +4,19 @@
     <v-row>
       <!-- Wallet Overview Section -->
       <v-col cols="12" md="6">
-        <v-card class="pa-5 wallet-card">
+        <v-card class="pa-5 wallet-card elevation-8">
           <v-card-title class="headline d-flex align-center">
-            <v-icon class="mr-2">mdi-wallet</v-icon> Wallet Overview
+            <v-icon class="mr-2">mdi-wallet</v-icon>
+            Wallet Overview
           </v-card-title>
           <v-card-text>
             <v-list>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>Balance</v-list-item-title>
-                  <v-list-item-subtitle class="balance-text">{{
-                    formattedBalance
-                  }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="balance-text">
+                    {{ formattedBalance }}
+                  </v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item>
@@ -25,21 +26,22 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list>
-            <v-btn color="gradient" block @click="showAddFundsDialog"
-              >Add Funds</v-btn
-            >
-            <v-btn color="error" block @click="showWithdrawFundsDialog"
-              >Withdraw Funds</v-btn
-            >
+            <v-btn class="wallet-btn gradient-btn" block @click="showAddFundsDialog">
+              Add Funds
+            </v-btn>
+            <v-btn class="wallet-btn withdraw-btn" block @click="showWithdrawFundsDialog">
+              Withdraw Funds
+            </v-btn>
           </v-card-text>
         </v-card>
       </v-col>
 
       <!-- Transaction History Section -->
       <v-col cols="12" md="6">
-        <v-card class="pa-5 transaction-card">
+        <v-card class="pa-5 transaction-card elevation-8">
           <v-card-title class="headline d-flex align-center">
-            <v-icon class="mr-2">mdi-history</v-icon> Transaction History
+            <v-icon class="mr-2">mdi-history</v-icon>
+            Transaction History
           </v-card-title>
           <v-card-text>
             <v-data-table
@@ -47,9 +49,13 @@
               :items="transactions"
               item-key="id"
               class="elevation-1"
+              :items-per-page="5"
+              :footer-props="{ 'items-per-page-options': [5, 10, 15] }"
             >
               <template v-slot:[`item.date`]="{ item }">
-                <v-chip small>{{ formatDate(item.date) }}</v-chip>
+                <v-chip small class="date-chip">
+                  {{ formatDate(item.date) }}
+                </v-chip>
               </template>
               <template v-slot:[`item.amount`]="{ item }">
                 <v-chip small :color="item.amount >= 0 ? 'green' : 'red'" dark>
@@ -183,36 +189,63 @@ export default {
 
 .wallet-card,
 .transaction-card {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #1e2a38, #2d3e50);
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2d3e50;
+}
+
+.wallet-card {
+  margin-bottom: 20px;
 }
 
 .v-card-title {
   font-weight: bold;
-  color: #2c3e50;
+  color: #dfe6e9;
 }
 
 .balance-text {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #16a085;
+  color: #1abc9c;
+  padding: 10px 0; /* Adjust padding to ensure space around text */
+  line-height: 1.2; /* Adjust line-height for better vertical alignment */
+  display: flex;
+  align-items: center; /* Center text vertically within container */
 }
 
-.v-btn {
+
+.v-btn.wallet-btn {
   margin-top: 10px;
+  text-transform: none;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.v-btn[color="gradient"] {
-  background: linear-gradient(45deg, #42a5f5, #478ed1);
+.v-btn.wallet-btn:hover {
+  transform: scale(1.05);
 }
 
-.v-btn[color="error"] {
-  background-color: #e74c3c;
+.v-btn.gradient-btn {
+  background: linear-gradient(45deg, #1e88e5, #0d47a1);
+  color: #ffffff;
 }
 
-.v-chip {
-  font-size: 0.8rem;
+.v-btn.withdraw-btn {
+  background-color: #d32f2f;
+  color: #ffffff;
+}
+
+.v-chip.date-chip {
+  background-color: #344952;
+  color: #ffffff;
+}
+
+.v-data-table .v-chip {
+  font-size: 0.9rem;
   font-weight: bold;
 }
 </style>

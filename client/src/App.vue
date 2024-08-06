@@ -1,18 +1,24 @@
 <template>
   <v-app>
+    <!-- Preloader -->
+    <PreLoader v-if="isLoading" />
+
     <!-- App Bar -->
     <v-app-bar app color="rgba(30, 30, 30, 0.8)" dark elevate-on-scroll>
-      <v-toolbar-title @click="goToHome" class="cursor-pointer d-flex align-center">
-        <v-icon large class="mr-2">mdi-currency-btc</v-icon> 
+      <v-toolbar-title
+        @click="goToHome"
+        class="cursor-pointer d-flex align-center"
+      >
+        <v-icon large class="mr-2">mdi-currency-btc</v-icon>
         CrudPay
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text class="app-bar-btn" @click="goToHome">Home</v-btn>
       <v-btn text class="app-bar-btn" @click="goToFeatures">Features</v-btn>
       <v-btn text class="app-bar-btn" @click="goToSupport">Support</v-btn>
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on" class="app-bar-btn">
+      <v-menu v-model="menu" offset-y :close-on-content-click="false">
+        <template v-slot:activator="{ props }">
+          <v-btn icon v-bind="props" class="app-bar-btn">
             <v-icon>mdi-account-circle</v-icon>
           </v-btn>
         </template>
@@ -40,7 +46,10 @@
         <v-row>
           <v-col cols="12" md="4" class="text-center text-md-left mb-4 mb-md-0">
             <h5 class="white--text">CrudPay</h5>
-            <p class="grey--text">Your gateway to effortless cryptocurrency management and transactions.</p>
+            <p class="grey--text">
+              Your gateway to effortless cryptocurrency management and
+              transactions.
+            </p>
             <v-icon class="white--text mr-2">mdi-facebook</v-icon>
             <v-icon class="white--text mr-2">mdi-twitter</v-icon>
             <v-icon class="white--text">mdi-linkedin</v-icon>
@@ -48,7 +57,9 @@
           <v-col cols="12" md="4" class="text-center mb-4 mb-md-0">
             <h5 class="white--text">Quick Links</h5>
             <v-btn text class="footer-btn" @click="goToHome">Home</v-btn>
-            <v-btn text class="footer-btn" @click="goToFeatures">Features</v-btn>
+            <v-btn text class="footer-btn" @click="goToFeatures"
+              >Features</v-btn
+            >
             <v-btn text class="footer-btn" @click="goToSupport">Support</v-btn>
           </v-col>
           <v-col cols="12" md="4" class="text-center text-md-right">
@@ -69,34 +80,45 @@
 </template>
 
 <script>
+import PreLoader from "./components/PreLoader.vue";
+
 export default {
-  name: 'App',
+  name: "App",
+  components: {
+    PreLoader
+  },
+  data() {
+    return {
+      isLoading: true,
+      menu: false,
+    };
+  },
   methods: {
     goToHome() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
     goToFeatures() {
-      this.$router.push('/features');
+      this.$router.push("/features");
     },
     goToSupport() {
-      this.$router.push('/support');
+      this.$router.push("/support");
     },
     goToLogin() {
-      this.$router.push('/login');
+      this.$router.push("/login");
     },
     goToRegister() {
-      this.$router.push('/register');
-    }
-  }
+      this.$router.push("/register");
+    },
+  },
 };
 </script>
 
 <style>
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #F0F0F0; 
+  background-color: #f0f0f0;
 }
 
 .v-app-bar {
@@ -106,17 +128,17 @@ body {
 .v-toolbar-title {
   font-weight: 600;
   font-size: 1.8rem;
-  color: #E0E0E0;
+  color: #e0e0e0;
 }
 
 .app-bar-btn {
-  color: #E0E0E0 !important;
+  color: #e0e0e0 !important;
   font-weight: 500;
   text-transform: none;
 }
 
 .app-bar-btn:hover {
-  color: #B0BEC5 !important;
+  color: #b0bec5 !important;
 }
 
 .v-footer {
@@ -131,7 +153,7 @@ body {
 
 .v-footer .text-center {
   padding: 1rem;
-  color: #E0E0E0;
+  color: #e0e0e0;
 }
 
 .footer-btn {
@@ -141,7 +163,7 @@ body {
 }
 
 .footer-btn:hover {
-  color: #B0BEC5 !important;
+  color: #b0bec5 !important;
 }
 
 .v-divider {

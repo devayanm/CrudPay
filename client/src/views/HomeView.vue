@@ -11,6 +11,7 @@
           <v-card-subtitle class="white--text">
             Your gateway to effortless cryptocurrency management and transactions.
           </v-card-subtitle>
+          <v-btn color="primary" class="mt-4" @click="exploreMore">Explore Features</v-btn>
         </v-card>
       </v-col>
     </v-row>
@@ -21,7 +22,7 @@
         <v-row dense>
           <!-- Dashboard Card -->
           <v-col cols="12" md="6" class="mb-4">
-            <v-card class="pa-4 text-center dashboard-card" elevation="8">
+            <v-card class="pa-4 text-center dashboard-card" elevation="12">
               <v-icon large class="mb-2">mdi-view-dashboard</v-icon>
               <v-card-title>Dashboard</v-card-title>
               <v-card-subtitle class="mb-3">Overview of your transactions and balances.</v-card-subtitle>
@@ -31,7 +32,7 @@
 
           <!-- Wallet Card -->
           <v-col cols="12" md="6" class="mb-4">
-            <v-card class="pa-4 text-center wallet-card" elevation="8">
+            <v-card class="pa-4 text-center wallet-card" elevation="12">
               <v-icon large class="mb-2">mdi-wallet-outline</v-icon>
               <v-card-title>Wallet</v-card-title>
               <v-card-subtitle class="mb-3">Manage your crypto assets and transactions.</v-card-subtitle>
@@ -43,7 +44,7 @@
         <!-- Additional Info Card -->
         <v-row dense>
           <v-col cols="12" class="mb-4">
-            <v-card class="pa-4 text-center additional-info-card" elevation="8">
+            <v-card class="pa-4 text-center additional-info-card" elevation="12">
               <v-icon large class="mb-2">mdi-cash-usd</v-icon>
               <v-card-title>Instant Transactions</v-card-title>
               <v-card-subtitle class="mb-3">Experience fast and secure transactions with our gateway.</v-card-subtitle>
@@ -77,59 +78,56 @@ export default {
 .hero-section {
   background: url('@/assets/hero-background.jpg') no-repeat center center;
   background-size: cover;
-  height: 350px;
+  height: 400px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
-  margin-top: 30px;
-  margin-bottom: 16px; 
+  padding: 20px;
 }
 
 .hero-card {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   text-align: center;
-  padding: 20px 30px;
-  border-radius: 10px;
-  max-width: 600px;
+  padding: 30px;
+  border-radius: 15px;
 }
 
 .hero-card .v-card-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .hero-card .v-card-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
-
-/* .main-content {
-  margin-top: 20px; 
-  margin-bottom: 20px; 
-} */
 
 .dashboard-card, .wallet-card, .additional-info-card {
   transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 15px;
 }
 
 .dashboard-card:hover, .wallet-card:hover, .additional-info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
 .v-card-title {
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .v-card-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #666;
 }
 
 .v-btn {
   font-weight: bold;
+  border-radius: 25px;
+  padding: 10px 20px;
 }
 
 .primary--text {
@@ -141,6 +139,6 @@ export default {
 }
 
 .mb-4 {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 </style>
