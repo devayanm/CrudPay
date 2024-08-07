@@ -37,7 +37,7 @@
     </v-app-bar>
 
     <!-- Main Content -->
-    <v-main>
+    <v-main style="--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 64px;">
       <v-container fluid class="pa-0 ma-0">
         <router-view></router-view>
       </v-container>

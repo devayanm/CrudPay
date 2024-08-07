@@ -6,19 +6,33 @@ import DashboardView from "@/views/DashboardView.vue";
 import WalletView from "@/views/WalletView.vue";
 import PaymentIntegrationView from "@/views/PaymentIntegration.vue";
 import ConvertCryptoView from "@/views/ConvertCrypto.vue";
-import ProfileView from "@/views/ProfileView.vue"
+import ProfileView from "@/views/ProfileView.vue";
 import PaymentMethodsView from "@/views/PaymentMethodsView.vue";
+import FeaturesView from "@/views/FeaturesView.vue";
 
 const routes = [
-  { path: "/", component: HomeView },
-  { path: "/login", component: LoginView },
-  { path: "/register", component: RegisterView },
-  { path: "/dashboard", component: DashboardView },
-  { path: "/wallet", component: WalletView },
-  { path: "/payment-integration", component: PaymentIntegrationView },
-  { path: "/convert-crypto", component: ConvertCryptoView },
+  { path: "/", name: "home", component: HomeView },
+  { path: "/features", name: "features", component: FeaturesView },
+  { path: "/login", name: "login", component: LoginView },
+  { path: "/register", name: "register", component: RegisterView },
+  { path: "/dashboard", name: "dashboard", component: DashboardView },
+  { path: "/wallet", name: "wallet", component: WalletView },
+  {
+    path: "/payment-integration",
+    name: "paymentintegration",
+    component: PaymentIntegrationView,
+  },
+  {
+    path: "/convert-crypto",
+    name: "convertcrypto",
+    component: ConvertCryptoView,
+  },
   { path: "/profile", name: "Profile", component: ProfileView },
-  { path: "/payment-methods", name: "PaymentMethods", component: PaymentMethodsView },
+  {
+    path: "/payment-methods",
+    name: "PaymentMethods",
+    component: PaymentMethodsView,
+  },
 ];
 
 const router = createRouter({
