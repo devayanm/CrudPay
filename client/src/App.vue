@@ -5,12 +5,14 @@
 
     <!-- App Bar -->
     <v-app-bar app color="rgba(30, 30, 30, 0.8)" dark elevate-on-scroll>
-      <v-toolbar-title
-        @click="goToHome"
-        class="cursor-pointer d-flex align-center"
-      >
-        <v-icon large class="mr-2">mdi-currency-btc</v-icon>
-        CrudPay
+      <v-toolbar-title>
+        <div
+        class="logo-box cursor-pointer d-flex align-center"
+          @click="goToHome"
+        >
+          <img :src="logo" alt="CrudPay Logo" class="logo" />
+          <span class="crudpay-title">CrudPay</span>
+        </div>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text class="app-bar-btn" @click="goToHome">Home</v-btn>
@@ -37,7 +39,14 @@
     </v-app-bar>
 
     <!-- Main Content -->
-    <v-main style="--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 64px;">
+    <v-main
+      style="
+        --v-layout-left: 0px;
+        --v-layout-right: 0px;
+        --v-layout-top: 64px;
+        --v-layout-bottom: 64px;
+      "
+    >
       <v-container fluid class="pa-0 ma-0">
         <router-view></router-view>
       </v-container>
@@ -66,6 +75,7 @@
             <v-btn text class="footer-btn" @click="goToSupport">Support</v-btn>
           </v-col>
           <v-col cols="12" md="4" class="text-center text-md-right">
+            <img :src="logo" alt="CrudPay Logo" class="logo" />
             <h5 class="white--text">Contact Us</h5>
             <p class="grey--text">support@crudpay.com</p>
             <p class="grey--text">+123 456 7890</p>
@@ -84,16 +94,18 @@
 
 <script>
 import PreLoader from "./components/PreLoader.vue";
+import logo from "@/assets/logo.png";
 
 export default {
   name: "App",
   components: {
-    PreLoader
+    PreLoader,
   },
   data() {
     return {
       isLoading: true,
       menu: false,
+      logo,
     };
   },
   methods: {
@@ -132,8 +144,26 @@ body {
 }
 
 .v-toolbar-title {
+  display: flex;
+  align-items: center;
   font-weight: 600;
   font-size: 1.8rem;
+  color: #e0e0e0;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.crudpay-title {
+  font-size: 1.8rem;
+  font-weight: 600;
   color: #e0e0e0;
 }
 
