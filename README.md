@@ -2,7 +2,7 @@
 
 Welcome to **CrudPay**, the premier solution for integrating crypto payments and UPI functionality into your e-commerce platform. With state-of-the-art technology and top-notch security, CrudPay makes managing transactions seamless and secure.
 
-![CrudPay Logo](client/src/assets/crudpay-logo.png)
+<img src="client/src/assets/crudpay-logo.png" alt="CrudPay Logo" width="300"/>
 
 ## 🚀 **Features & Benefits**
 
