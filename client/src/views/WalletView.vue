@@ -4,7 +4,7 @@
     <v-row>
       <!-- Wallet Overview Section -->
       <v-col cols="12" md="6">
-        <v-card class="pa-5 wallet-card elevation-8">
+        <v-card class="pa-5 wallet-card elevation-12">
           <v-card-title class="headline d-flex align-center">
             <v-icon class="mr-2">mdi-wallet</v-icon>
             Wallet Overview
@@ -26,10 +26,12 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list>
-            <v-btn class="wallet-btn gradient-btn" block @click="showAddFundsDialog">
+            <v-btn class="wallet-btn gradient-btn" block @click="showAddFundsDialog"
+              v-tooltip.bottom="'Add funds to your wallet'">
               Add Funds
             </v-btn>
-            <v-btn class="wallet-btn withdraw-btn" block @click="showWithdrawFundsDialog">
+            <v-btn class="wallet-btn withdraw-btn" block @click="showWithdrawFundsDialog"
+              v-tooltip.bottom="'Withdraw funds from your wallet'">
               Withdraw Funds
             </v-btn>
           </v-card-text>
@@ -38,20 +40,14 @@
 
       <!-- Transaction History Section -->
       <v-col cols="12" md="6">
-        <v-card class="pa-5 transaction-card elevation-8">
+        <v-card class="pa-5 transaction-card elevation-12">
           <v-card-title class="headline d-flex align-center">
             <v-icon class="mr-2">mdi-history</v-icon>
             Transaction History
           </v-card-title>
           <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="transactions"
-              item-key="id"
-              class="elevation-1"
-              :items-per-page="5"
-              :footer-props="{ 'items-per-page-options': [5, 10, 15] }"
-            >
+            <v-data-table :headers="headers" :items="transactions" item-key="id" class="elevation-2" :items-per-page="5"
+              :footer-props="{ 'items-per-page-options': [5, 10, 15] }">
               <template v-slot:[`item.date`]="{ item }">
                 <v-chip small class="date-chip">
                   {{ formatDate(item.date) }}
@@ -73,13 +69,8 @@
       <v-card>
         <v-card-title class="headline">Add Funds</v-card-title>
         <v-card-text>
-          <v-text-field
-            label="Amount"
-            v-model="addFundsAmount"
-            type="number"
-            :rules="[amountRules]"
-            required
-          ></v-text-field>
+          <v-text-field label="Amount" v-model="addFundsAmount" type="number" :rules="[amountRules]"
+            required></v-text-field>
         </v-card-text>
         <v-card-actions>
           <v-btn text @click="addFundsDialog = false">Cancel</v-btn>
@@ -93,13 +84,8 @@
       <v-card>
         <v-card-title class="headline">Withdraw Funds</v-card-title>
         <v-card-text>
-          <v-text-field
-            label="Amount"
-            v-model="withdrawFundsAmount"
-            type="number"
-            :rules="[amountRules]"
-            required
-          ></v-text-field>
+          <v-text-field label="Amount" v-model="withdrawFundsAmount" type="number" :rules="[amountRules]"
+            required></v-text-field>
         </v-card-text>
         <v-card-actions>
           <v-btn text @click="withdrawFundsDialog = false">Cancel</v-btn>
@@ -115,8 +101,8 @@ export default {
   name: "WalletView",
   data() {
     return {
-      balance: 1000.0, // Example balance, replace with actual data
-      currency: "BTC", // Example currency, replace with actual data
+      balance: 1000.0,
+      currency: "BTC",
       transactions: [
         { id: 1, date: "2024-08-01", amount: 100.0 },
         { id: 2, date: "2024-08-03", amount: -50.0 },
@@ -192,7 +178,7 @@ export default {
   background: linear-gradient(135deg, #1e2a38, #2d3e50);
   color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border: 1px solid #2d3e50;
 }
 
@@ -206,27 +192,27 @@ export default {
 }
 
 .balance-text {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #1abc9c;
-  padding: 10px 0; /* Adjust padding to ensure space around text */
-  line-height: 1.2; /* Adjust line-height for better vertical alignment */
+  padding: 12px 0;
+  line-height: 1.3;
   display: flex;
-  align-items: center; /* Center text vertically within container */
+  align-items: center;
 }
-
 
 .v-btn.wallet-btn {
   margin-top: 10px;
   text-transform: none;
   font-weight: bold;
   border-radius: 25px;
-  padding: 10px 20px;
-  transition: background-color 0.3s, transform 0.3s;
+  padding: 12px 24px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .v-btn.wallet-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .v-btn.gradient-btn {
@@ -247,5 +233,13 @@ export default {
 .v-data-table .v-chip {
   font-size: 0.9rem;
   font-weight: bold;
+}
+
+.v-data-table .v-chip.green {
+  background-color: #388e3c;
+}
+
+.v-data-table .v-chip.red {
+  background-color: #d32f2f;
 }
 </style>

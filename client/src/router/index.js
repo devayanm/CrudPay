@@ -9,10 +9,12 @@ import ConvertCryptoView from "@/views/ConvertCrypto.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import PaymentMethodsView from "@/views/PaymentMethodsView.vue";
 import FeaturesView from "@/views/FeaturesView.vue";
+import SupportView from "@/views/SupportView.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
   { path: "/features", name: "features", component: FeaturesView },
+  { path: "/support", name: "support", component: SupportView },
   { path: "/login", name: "login", component: LoginView },
   { path: "/register", name: "register", component: RegisterView },
   { path: "/dashboard", name: "dashboard", component: DashboardView },

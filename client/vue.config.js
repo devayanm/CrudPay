@@ -1,5 +1,5 @@
-const { defineConfig } = require("@vue/cli-service");
-const { VuetifyPlugin } = require("webpack-plugin-vuetify");
+const { defineConfig } = require('@vue/cli-service');
+const VuetifyPlugin = require('webpack-plugin-vuetify').default;
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -11,8 +11,8 @@ module.exports = defineConfig({
     ],
   },
   chainWebpack: (config) => {
-    config.plugin("html").tap((args) => {
-      args[0].title = "CrudPay";
+    config.plugin('html').tap((args) => {
+      args[0].title = 'CrudPay';
       return args;
     });
   },

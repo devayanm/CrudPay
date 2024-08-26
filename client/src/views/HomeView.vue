@@ -158,6 +158,13 @@ export default {
 .additional-info-card {
   transition: transform 0.3s, box-shadow 0.3s;
   border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for Web 3.0 feel */
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6); /* Glassmorphism card */
+  backdrop-filter: blur(8px);
+  color: #fff !important;
+  text-align: center;
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .dashboard-card:hover,
@@ -170,12 +177,12 @@ export default {
 
 .v-card-title {
   font-weight: bold;
-  color: #333;
+  /* color: #333; */
   font-size: 1.2rem;
 }
 
 .v-card-subtitle {
-  color: #666;
+  /* color: #666; */
   font-size: 0.9rem;
 }
 
