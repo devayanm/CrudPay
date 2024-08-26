@@ -16,14 +16,7 @@
     <v-row class="d-flex justify-center mt-5">
       <v-col cols="12" md="10">
         <v-row>
-          <v-col
-            cols="12"
-            sm="6"
-            md="4"
-            lg="3"
-            v-for="feature in features"
-            :key="feature.title"
-          >
+          <v-col cols="12" sm="6" md="4" lg="3" v-for="feature in features" :key="feature.title">
             <v-card class="feature-card" @click="openFeature(feature)">
               <v-icon class="feature-icon">{{ feature.icon }}</v-icon>
               <v-card-title class="feature-card-title">{{
@@ -42,30 +35,13 @@
     <v-row class="d-flex justify-center mt-5">
       <v-col cols="12" md="10">
         <v-card class="testimonials-card">
-          <v-card-title class="testimonials-title"
-            >What Our Users Say</v-card-title
-          >
+          <v-card-title class="testimonials-title">What Our Users Say</v-card-title>
           <v-card-text>
-            <v-carousel
-              v-model="carouselModel"
-              cycle
-              hide-delimiter-background
-              show-arrows-on-hover
-              class="testimonials-carousel"
-              :interval="5000"
-              height="auto"
-            >
-              <v-carousel-item
-                v-for="(testimonial, index) in chunkedTestimonials"
-                :key="index"
-                class="carousel-item"
-              >
+            <v-carousel v-model="carouselModel" cycle hide-delimiter-background show-arrows-on-hover
+              class="testimonials-carousel" :interval="5000" height="auto">
+              <v-carousel-item v-for="(testimonial, index) in chunkedTestimonials" :key="index" class="carousel-item">
                 <div class="testimonial-group">
-                  <v-card
-                    v-for="(item, idx) in testimonial"
-                    :key="idx"
-                    class="testimonial-card"
-                  >
+                  <v-card v-for="(item, idx) in testimonial" :key="idx" class="testimonial-card">
                     <v-card-text class="testimonial-text">
                       {{ item.text }}
                     </v-card-text>
@@ -85,15 +61,10 @@
     <v-row class="d-flex justify-center mt-5">
       <v-col cols="12" md="10">
         <v-card class="additional-features-card">
-          <v-card-title class="additional-features-title"
-            >More Features</v-card-title
-          >
+          <v-card-title class="additional-features-title">More Features</v-card-title>
           <v-card-text>
             <v-list dense>
-              <v-list-item
-                v-for="feature in additionalFeatures"
-                :key="feature.title"
-              >
+              <v-list-item v-for="feature in additionalFeatures" :key="feature.title">
                 <v-list-item-icon>
                   <v-icon>{{ feature.icon }}</v-icon>
                 </v-list-item-icon>
@@ -127,9 +98,7 @@
           <p>{{ selectedFeature.details }}</p>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" text @click="featureDialog = false"
-            >Close</v-btn
-          >
+          <v-btn color="primary" text @click="featureDialog = false">Close</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -281,23 +250,23 @@ export default {
 <style scoped>
 .features-container {
   padding: 20px;
-  background-color: #f5f7fa;
 }
 
 .hero-section {
   margin-bottom: 40px;
+  color: #ffffff;
 }
 
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin-bottom: 10px;
 }
 
 .hero-subtitle {
   font-size: 1.15rem;
-  color: #7f8c8d;
+  /* color: #7f8c8d; */
 }
 
 .feature-card {
@@ -306,10 +275,11 @@ export default {
   border-radius: 12px;
   overflow: hidden;
   text-align: center;
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   position: relative;
   padding: 20px;
+  color: #ffffff;
 }
 
 .feature-card:hover {
@@ -326,27 +296,28 @@ export default {
 .feature-card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin-bottom: 5px;
 }
 
 .feature-card-subtitle {
   font-size: 0.875rem;
-  color: #7f8c8d;
+  /* color: #7f8c8d; */
 }
 
 .testimonials-card {
   border-radius: 12px;
   padding: 30px;
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   height: 400px;
+  color: #ffffff;
 }
 
 .testimonials-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin-bottom: 20px;
 }
 
@@ -368,39 +339,43 @@ export default {
 .testimonial-card {
   border-radius: 12px;
   padding: 20px;
-  background-color: #f5f7fa;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   margin: 10px;
   flex: 1;
   max-width: 250px;
   height: 250px;
+  color: #ffffff;
 }
 
 .testimonial-text {
   font-size: 1rem;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin-bottom: 10px;
 }
 
 .testimonial-author {
   font-size: 0.875rem;
-  color: #7f8c8d;
+  /* color: #7f8c8d; */
   text-align: right;
 }
 
 .additional-features-card {
   border-radius: 12px;
   padding: 30px;
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .additional-features-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin-bottom: 20px;
 }
+
+
 
 .modal-title {
   font-size: 1.25rem;

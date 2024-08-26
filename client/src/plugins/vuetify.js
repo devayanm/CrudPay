@@ -7,6 +7,7 @@ export default createVuetify({
     defaultTheme: "light",
     themes: {
       light: {
+        background: "#2B2A33 !important",
         colors: {
           primary: "#1976D2",
           secondary: "#424242",
@@ -16,6 +17,9 @@ export default createVuetify({
           success: "#4CAF50",
           warning: "#FFC107",
         },
+      },
+      dark: {
+        background: "#2B2A33", // For dark mode if needed
       },
     },
   },

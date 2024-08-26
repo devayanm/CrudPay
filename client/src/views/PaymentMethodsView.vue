@@ -84,10 +84,10 @@
           <v-card-title class="overview-card-title">
             Payment Overview
           </v-card-title>
-          <v-card-text>
-            <v-list dense>
-              <v-list-item>
-                <v-list-item-content>
+          <v-card-text >
+            <v-list dense class="recent-tranc">
+              <v-list-item >
+                <v-list-item-content >
                   <v-list-item-title class="overview-subheading">
                     Available Payment Methods
                   </v-list-item-title>
@@ -102,7 +102,7 @@
                   <v-list-item-title class="overview-subheading">
                     Recent Transactions
                   </v-list-item-title>
-                  <v-list-item-subtitle>
+                  <v-list-item-subtitle >
                     <v-chip
                       class="transaction-chip"
                       color="primary"
@@ -272,8 +272,8 @@ export default {
 <style scoped>
 .payment-methods-container {
   padding: 20px;
-  background-color: #f9fafc;
-  color: #333;
+  /* background-color: #f9fafc; */
+  color: #ffffff;
 }
 
 .hero-section {
@@ -289,7 +289,7 @@ export default {
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #7f8c8d;
+  color: #ffffff;
 }
 
 .instructions-section {
@@ -315,7 +315,7 @@ export default {
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
   min-height: 140px;
@@ -341,14 +341,22 @@ export default {
 .payment-card-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 10px;
+}
+
+.recent-tranc{
+  background: rgba(0, 0, 0, 0.6);  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin-top: 40px;
+  color: #ffffff;
 }
 
 .modal-title {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .modal-slide-in-right {
@@ -398,7 +406,7 @@ export default {
 
 .overview-card {
   padding: 20px;
-  background-color: #fff;
+  background: rgba(0, 0, 0, 0.6);  
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   margin-top: 40px;
@@ -407,14 +415,14 @@ export default {
 .overview-card-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .overview-subheading {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .transaction-chip {

@@ -191,33 +191,31 @@ export default {
 }
 
 .v-card {
-  background-color: #f5f5f5;
+  background: rgba(0, 0, 0, 0.6) !important;
   border-radius: 12px;
+  color: #ffffff !important;
 }
 
 .v-card-title {
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
 }
 
 .account-overview-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .quick-links-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recent-transactions-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .notifications-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .security-settings-card {

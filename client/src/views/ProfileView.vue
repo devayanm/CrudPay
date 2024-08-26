@@ -121,11 +121,12 @@ export default {
 }
 
 .welcome-banner {
-  background-color: #f5f5f5;
+  background: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
 }
 
 .welcome-banner .headline {
@@ -140,10 +141,11 @@ export default {
 .profile-card,
 .kyc-card,
 .tips-card {
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  color: #ffffff
 }
 
 .profile-card:hover,
@@ -179,14 +181,16 @@ export default {
 }
 
 .v-alert {
-  background-color: #fff3e0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff; 
   border-color: #ffcc80;
   color: #e64a19;
   font-size: 1rem;
 }
 
 .tips-card {
-  background-color: #f9f9f9;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff
 }
 
 .tips-card .font-weight-bold {

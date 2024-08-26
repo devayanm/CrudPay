@@ -154,15 +154,15 @@ export default {
 
 <style scoped>
 .v-container {
-  background-color: #f4f6f9;
   padding-top: 3rem;
 }
 
 .v-card {
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  color: #ffffff;
 }
 
 .v-card:hover {
@@ -195,7 +195,8 @@ export default {
 }
 
 .search-bar {
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
