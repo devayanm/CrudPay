@@ -116,7 +116,6 @@ export default {
         { title: 'Getting Started', description: 'Quick start guide for new users' },
         { title: 'Troubleshooting', description: 'Common issues and solutions' },
         { title: 'Contact Support', description: 'How to get in touch with support' },
-        // Add more resources here
       ],
     };
   },
